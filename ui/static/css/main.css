@@ -1,0 +1,22 @@
+* {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+/* https://stackoverflow.com/a/48908544 */
+html,
+body {
+    height: 100%;
+}
+
+.container {
+    margin-top: 2rem;
+    margin-left: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 4rem;
+}

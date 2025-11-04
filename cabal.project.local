@@ -1,0 +1,3 @@
+packages: .
+
+constraints: reflex-dom +use-warp -webkit2gtk

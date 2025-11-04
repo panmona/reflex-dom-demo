@@ -1,0 +1,106 @@
+name:                reflex-demo
+version:             0.1.0.0
+license:             MIT
+
+extra-source-files:
+- README.md
+
+dependencies:
+- base >= 4.7 && < 5
+
+ghc-options:
+- -Wall
+# -Werror is only set in CI build.
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+internal-libraries:
+  ui:
+    source-dirs: ui
+    dependencies:
+    - reflex-demo:core
+    - reflex-demo:ui-shared
+    - containers
+    - jsaddle
+    - ghcjs-dom
+    - reflex-dom
+    - reflex
+    - text
+    - lens
+    # If we need to use MonadWidget (= we would otherwise need a LOT of constraints) we get a GHC warning which fails the build.
+    ghc-options:
+      - -Wno-simplifiable-class-constraints
+
+  ui-shared:
+    source-dirs: ui-shared
+    dependencies:
+    - reflex-demo:core
+    - containers
+    - text
+    - reflex
+    - time
+
+  core: 
+    source-dirs: core
+    dependencies:
+    - containers
+    - parsec
+    - text
+
+executables:
+  reflex-demo-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - reflex-demo:core
+    - reflex-demo:ui
+    - reflex-demo:ui-shared
+    - containers
+    - reflex-dom
+    - reflex
+    - text
+    - lens
+    # If we need to use MonadWidget (= we would otherwise need a LOT of constraints) we get a GHC warning which fails the build.
+    ghc-options:
+      - -Wno-simplifiable-class-constraints
+
+tests:
+  core-test:
+    main:                Spec.hs
+    source-dirs:         test/core
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - reflex-demo:core
+    - QuickCheck
+    - hspec
+    - containers
+    - text
+
+  ui-shared-test:
+    main:                Spec.hs
+    source-dirs:         test/ui-shared
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - reflex-demo:core
+    - reflex-demo:ui-shared
+    - QuickCheck
+    - hspec
+    - containers
+
+default-extensions: NoFieldSelectors, OverloadedRecordDot, DuplicateRecordFields, ScopedTypeVariables, OverloadedStrings, 
