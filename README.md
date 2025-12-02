@@ -41,7 +41,7 @@ The ghcup command always outputs in the beginning which emsdk version is needed.
 1. Run `.build/serve.sh` to run a local webserver that gives you easy access to the compiled files
 1. You can then visit localhost on `http://localhost:8000`
 
-For faster development you can run building watch mode with the command `.build/watch.sh` (requires the tool [watchexec](https://github.com/watchexec/watchexec). But you may of course also use the watch tool of your choice).
+For faster development you can run building watch mode with the command `.build/watch-build.sh` (requires the tool [watchexec](https://github.com/watchexec/watchexec). But you may of course also use the watch tool of your choice).
 And for even more convenience use the command `.build/dev.sh`, which starts the build in watch mode and runs the web server.
 
 ### Running tests
