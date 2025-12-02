@@ -8,9 +8,9 @@ import qualified Data.Text as T
 
 view :: MonadWidget t m => () -> m ()
 view () = elClass "div" "todo-container" $ do
-  todoItem "buy coffee"
-  todoItem "buy oat milk"
-  todoItem "buy sugar"
+  _ <- todoItem "buy coffee"
+  _ <- todoItem "buy oat milk"
+  _ <- todoItem "buy sugar"
   return ()
 
 todoItem :: MonadWidget t m => Dynamic t T.Text -> m (Event t ())
