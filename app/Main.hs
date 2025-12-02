@@ -4,7 +4,8 @@
 module Main (main) where
 
 import qualified Data.Map.Strict as Map
-import qualified Page.Page as Page
+import qualified Pages.CounterPage as CounterPage
+import qualified Pages.TodoElementPage as TodoElementPage
 import Reflex.Dom
 import qualified Tx
 import Utils.StaticFiles (cssFiles)
@@ -32,4 +33,7 @@ headElement = do
         $ return ()
 
 bodyElement :: (MonadWidget t m) => m ()
-bodyElement = Page.view ()
+bodyElement = elAttr "main" ("class" =: "container") $ do
+  CounterPage.view ()
+  -- Uncomment to get another demo:
+  -- TodoElementPage.view ()

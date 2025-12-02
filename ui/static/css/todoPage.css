@@ -1,0 +1,4 @@
+.todo-item .removed {
+    text-decoration: line-through;
+    color: red;
+}

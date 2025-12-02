@@ -11,5 +11,6 @@ cssBasePath = basePath <> "/css"
 cssFiles :: [T.Text]
 cssFiles =
   [ cssBasePath <> "/external/normalize.css",
-    cssBasePath <> "/main.css"
+    cssBasePath <> "/main.css",
+    cssBasePath <> "/todoPage.css"
   ]

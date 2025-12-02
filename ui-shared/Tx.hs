@@ -3,6 +3,7 @@ module Tx
   ( pageTitle,
     plusButton,
     minusButton,
+    removeButton
   )
 where
 
@@ -16,3 +17,6 @@ plusButton = "+"
 
 minusButton :: T.Text
 minusButton = "-"
+
+removeButton :: T.Text
+removeButton = "Remove"

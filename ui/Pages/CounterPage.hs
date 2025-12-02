@@ -1,6 +1,6 @@
 {-# LANGUAGE RecursiveDo #-}
 
-module Page.Page (view) where
+module Pages.CounterPage (view) where
 
 import Events.CounterEventHandler (getInitialValue, handleCounterEvent)
 import Events.EventTypes
@@ -12,7 +12,7 @@ view :: (MonadWidget t m) => () -> m ()
 -- Elements are rendered in the order they are declared.
 -- Creates a "main" html element that has the class "container". 
 -- "=:" creates a map with one element
-view () = elAttr "main" ("class" =: "container") $ mdo
+view () = mdo
   -- Creates a very simple button. Returns the event of when it gets clicked.
   plusEv <- button Tx.plusButton
   -- Shows the current counter value (which is defined below). We can do this because we have recursive do enabled (see the mdo at the start of the function)
