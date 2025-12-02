@@ -31,4 +31,5 @@ cabal build --with-ghc=javascript-unknown-ghcjs-ghc --with-ghc-pkg=javascript-un
 GHCJS_VERSION="9.12.2"
 EXE_PATH="dist-newstyle/build/javascript-ghcjs/ghc-${GHCJS_VERSION}/reflex-demo-0.1.0.0/x/reflex-demo-exe/build/reflex-demo-exe/reflex-demo-exe.jsexe/"
 cp -r ui/static $EXE_PATH
-mv $EXE_PATH/static/favicon.ico $EXE_PATH/favicon.ico
+# add additional static files here if you need them, e.g. favicon
+# mv $EXE_PATH/static/favicon.ico $EXE_PATH/favicon.ico
